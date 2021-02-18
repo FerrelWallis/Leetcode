@@ -60,6 +60,25 @@ public class LongestUnivaluePath_687 {
         return Math.max(arrowLeft, arrowRight);
     }
 
+    //dfs  计算当前节点作为最高点，向左右延伸的最大值路径和，存放入ans
+    //     dfs返回当前节点左右路径之间的最大值，作为其父节点的延伸路径
+    //相同思路的题：leetcode124
+    public int longestUnivaluePath2(TreeNode root) {
+        max_length(root);
+        return ans;
+    }
+
+    private int max_length(TreeNode root) {
+        if (root == null) return 0;
+        int leftlen = max_length(root.left);
+        int rightlen = max_length(root.right);
+        int curleft = 0, curright = 0;
+        if (root.left != null && root.left.val == root.val) curleft = leftlen + 1;
+        if (root.right != null && root.right.val == root.val) curright = rightlen + 1;
+        ans = Math.max(ans, curleft + curright);
+        return Math.max(leftlen, rightlen);
+    }
+
 
     public class TreeNode {
         int val;

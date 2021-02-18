@@ -31,6 +31,15 @@ public class PowerofTwo_231 {
         return ((n & (n - 1)) == 0)? true : false;
     }
 
+    //迭代 %2 = 0 的情况下循环/2
+    public boolean isPowerOfTwo2(int n) {
+        if(n == 0) return false;
+        while (n % 2 == 0) {
+            n /= 2;
+        }
+        return n == 0;
+    }
+
 
 
 }
