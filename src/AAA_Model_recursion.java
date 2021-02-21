@@ -1,5 +1,12 @@
 public class AAA_Model_recursion {
 
+    public static void main(String[] args) {
+        BloomFilter test = new BloomFilter(3,10);
+        test.add("a");
+//        test.add("b");
+    }
+
+
     //1.典型递归模板
     int Max_level=Integer.MAX_VALUE;
     public void recur(int level,int param){
